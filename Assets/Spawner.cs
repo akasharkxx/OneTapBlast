@@ -6,15 +6,17 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private List<GameObject> asteroids;
-    [SerializeField] private float timeBetweenSpawn, speedOfAsteriod, timeToDie;
-
-    private Transform player;
+    [SerializeField] private float timeBetweenSpawn, speedOfAsteriod, timeToDie, rotateAngle;
+    [SerializeField] [Range(0f, 1f)] private float spread;
+    [SerializeField] private Transform player;
+    
     private float elapsedTime;
     private bool canSpawn;
 
     private void Start()
     {
-        player = FindObjectOfType<Player>().transform;
+        elapsedTime = 0;
+        canSpawn = false;
     }
 
     private void Update()
@@ -38,15 +40,19 @@ public class Spawner : MonoBehaviour
         {
             SpawnAsteroids(Random.Range(0, spawnPoints.Count - 1));
         }
+
+        transform.Rotate(new Vector3(0f, 0f, transform.position.z + rotateAngle));
     }
 
     private void SpawnAsteroids(int i)
     {
         GameObject asteroid = Instantiate(asteroids[0], spawnPoints[i].position, Quaternion.identity);
 
-        Vector2 direction = player.position - spawnPoints[i].position;
+        Vector3 newPlayerPosition = new Vector3(player.position.x + Random.Range(-spread, spread), player.position.y + Random.Range(-spread, spread), player.position.z);
 
-        asteroid.GetComponent<Rigidbody2D>().AddForce(direction * speedOfAsteriod, ForceMode2D.Impulse);
+        Vector2 directionWithSpread = newPlayerPosition - spawnPoints[i].position;
+        Debug.Log(directionWithSpread);
+        asteroid.GetComponent<Rigidbody2D>().AddRelativeForce(directionWithSpread * speedOfAsteriod, ForceMode2D.Impulse);
 
         Destroy(asteroid, timeToDie);
     }
