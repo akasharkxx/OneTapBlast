@@ -19,20 +19,21 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            isTouching = true;
+            //isTouching = true;
+            playerBody.AddRelativeForce(-thruster.right * force, isImpulse ? ForceMode2D.Impulse : ForceMode2D.Force);
         }
-        else
-        {
-            isTouching = false;
-        }
+        //else
+        //{
+        //    isTouching = false;
+        //}
     }
 
-    private void FixedUpdate()
-    {
-        if (isTouching)
-        {
-            playerBody.AddForce(-thruster.right * force, isImpulse ? ForceMode2D.Impulse : ForceMode2D.Force);
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (isTouching)
+    //    {
+    //        playerBody.AddRelativeForce(-thruster.right * force, isImpulse ? ForceMode2D.Impulse : ForceMode2D.Force);
+    //    }
+    //}
 
 }
