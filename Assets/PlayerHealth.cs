@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private TextMeshProUGUI shieldText;
+    [SerializeField] private int maxHealth, maxShield;
 
-    private int currentHealth;
+    private int currentHealth, currentShield;
     private bool isDead;
 
     private void Start()
@@ -37,4 +36,5 @@ public class PlayerHealth : MonoBehaviour
     {
         return isDead;
     }
+
 }

@@ -222,6 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  scoreOfThis: 10
+  multiplier: 1
+  timeToDie: 2
 --- !u!1 &3066906562581239501
 GameObject:
   m_ObjectHideFlags: 0

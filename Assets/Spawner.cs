@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float timeBetweenSpawn, speedOfAsteriod, timeToDie, rotateAngle;
     [SerializeField] [Range(0f, 1f)] private float spread;
     [SerializeField] private Transform player;
+    [SerializeField] private GameObject marker;
     
     private float elapsedTime;
     private bool canSpawn;
@@ -46,6 +47,10 @@ public class Spawner : MonoBehaviour
 
     private void SpawnAsteroids(int i)
     {
+        RaycastHit2D hit = Physics2D.Raycast(spawnPoints[i].position, player.position - spawnPoints[i].position);
+
+        Instantiate(marker, new Vector3(hit.point.x, hit.point.y, 0f), Quaternion.identity);
+
         GameObject asteroid = Instantiate(asteroids[0], spawnPoints[i].position, Quaternion.identity);
 
         Vector3 newPlayerPosition = new Vector3(player.position.x + Random.Range(-spread, spread), player.position.y + Random.Range(-spread, spread), player.position.z);
