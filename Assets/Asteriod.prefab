@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  damageEffect: {fileID: 4697832243487877216, guid: 648b03b7556b90e41afdb9c1bd399b43,
+    type: 3}
 --- !u!1 &3066906562581239501
 GameObject:
   m_ObjectHideFlags: 0
