@@ -47,9 +47,9 @@ public class Spawner : MonoBehaviour
 
     private void SpawnAsteroids(int i)
     {
-        RaycastHit2D hit = Physics2D.Raycast(spawnPoints[i].position, player.position - spawnPoints[i].position);
+        //RaycastHit2D hit = Physics2D.Raycast(spawnPoints[i].position, player.position - spawnPoints[i].position);
 
-        Instantiate(marker, new Vector3(hit.point.x, hit.point.y, 0f), Quaternion.identity);
+        //Instantiate(marker, new Vector3(hit.point.x, hit.point.y, 0f), Quaternion.identity);
 
         GameObject asteroid = Instantiate(asteroids[0], spawnPoints[i].position, Quaternion.identity);
 

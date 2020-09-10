@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class AsteroidDamage : MonoBehaviour
 {
-    [SerializeField] private int damage, scoreOfThis, timeToDie;
+    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private int damage, scoreOfThis;
+    [SerializeField] private float timeToDie;
     private ScoreBucket scoreBucketInScene;
 
     private float elapsed;
@@ -36,6 +38,8 @@ public class AsteroidDamage : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             scoreBucketInScene.ResetMulitplier();
             isScoreSet = false;
+            GameObject explode = Instantiate(impactEffect, collision.collider.transform.position, Quaternion.identity);
+            Destroy(explode, 1f);
             Destroy(gameObject);
         }
     }

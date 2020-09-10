@@ -13,6 +13,7 @@ public class ScoreBucket : MonoBehaviour
     {
         isReset = false;
         multiplier = 0;
+        score = 0;
     }
 
     private void Update()
@@ -22,7 +23,7 @@ public class ScoreBucket : MonoBehaviour
             PlayerPrefs.SetInt("Score", score);
             isReset = false; 
         }
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
         multiplierText.text = "X" + multiplier.ToString();
     }
 
