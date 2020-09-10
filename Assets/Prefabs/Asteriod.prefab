@@ -221,11 +221,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd8b88c5bcef7a4ea462b17b0a4f816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Prefabs/Asteriod.prefab
   impactEffect: {fileID: 4697832243487877216, guid: 648b03b7556b90e41afdb9c1bd399b43,
     type: 3}
   damage: 9
   scoreOfThis: 10
   timeToDie: 1.2
+=======
+  damage: 10
+>>>>>>> parent of 0540812... My last commit:Assets/Asteriod.prefab
 --- !u!1 &3066906562581239501
 GameObject:
   m_ObjectHideFlags: 0
